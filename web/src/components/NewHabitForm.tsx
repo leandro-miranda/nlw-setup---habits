@@ -10,7 +10,7 @@ export function NewHabitForm() {
       <input
         type="text"
         id="title"
-        placeholder="ex: Exercícios, dormir bem, etc..."
+        placeholder="ex.: Exercícios, dormir bem, etc..."
         className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder:text-zinc-400"
         autoFocus
       />
