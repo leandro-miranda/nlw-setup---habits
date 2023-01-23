@@ -122,6 +122,8 @@ export async function appRoutes(app: FastifyInstance) {
   })
 
   app.get('/summary', async () => {
+    // Query mais complexa, mais condições, relacionamentos => SQL na mão (RAW)
+    // Prisma ORM: RAW SQL => SQLite
     const summary = await prisma.$queryRaw`
       SELECT 
         D.id, 
