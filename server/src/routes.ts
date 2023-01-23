@@ -124,13 +124,15 @@ export async function appRoutes(app: FastifyInstance) {
   app.get('/summary', async () => {
     // Query mais complexa, mais condições, relacionamentos => SQL na mão (RAW)
     // Prisma ORM: RAW SQL => SQLite
+    // cast para converter o tipo de dado
+    // strftime para converter o timestamp em data
     const summary = await prisma.$queryRaw`
       SELECT 
         D.id, 
         D.date,
         (
           SELECT 
-            cast(count(*) as float)
+            cast(count(*) as float) 
           FROM day_habits DH
           WHERE DH.day_id = D.id
         ) as completed,
